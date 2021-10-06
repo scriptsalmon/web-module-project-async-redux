@@ -4,10 +4,10 @@ import { FETCH_SUCCESS } from './../actions';
 
 export const initialState = { 
     activity: {
-        activity: "Save the planet",
-        type: "busywork",
-        participants: 1,
-        accessability: 0.2,
+        activity: "",
+        type: "",
+        participants: null,
+        accessability: null,
         key: 1333337,
     },
     favorite: false,
