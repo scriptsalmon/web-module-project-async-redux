@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.Activity {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+.activity-card {
+  height:200px;
+  width:200px;
+  padding:1%;
+  border:solid 1px teal;
+  margin:1%;
+}
