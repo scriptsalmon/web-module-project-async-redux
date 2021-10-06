@@ -1,8 +1,9 @@
 import { FETCH_START } from './../actions';
 import { FETCH_SUCCESS } from './../actions';
-
+import { FETCH_FAIL } from './../actions';
 
 export const initialState = { 
+    title: "Bored?",
     activity: {
         activity: "",
         type: "",
@@ -27,9 +28,18 @@ export const reducer = (state = initialState, action) => {
         case FETCH_SUCCESS:
             return {
                 ...state,
+                title: "Try this..?",
                 activity: action.payload,
                 isFetching: false,
                 error: ''
+            }
+        case FETCH_FAIL:
+            return {
+                ...state,
+                title: "",
+                activity: {},
+                isFetching: false,
+                error: action.payload
             }
         default:
             return state;
