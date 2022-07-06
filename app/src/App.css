@@ -4,10 +4,9 @@
 
 .Activity {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  margin: 2%;
 }
 
 .activity-card {
@@ -22,4 +21,12 @@
 .activity-card:hover {
   background-color: aqua;
   cursor: pointer;
+}
+
+.Favorites {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: blanchedalmond;
 }
