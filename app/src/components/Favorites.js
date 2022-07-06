@@ -1,33 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Favorites = () => {
-  const [favs, setFavs] = useState([]);
-  const [showFavorites, setShowFavorites] = useState(false);
+const Favorites = ({ favs }) => {
+  const handleRemove = (index) => {
+    // grabbing data from storage and storing in execution context
+    let storedActivities = JSON.parse(
+      localStorage.getItem("favoriteActivities")
+    );
+    // parsed & stored array will be mutated now, removing item by index
+    storedActivities.splice(index, 1);
 
-  const handleShowModule = () => {
-    setShowFavorites(!showFavorites);
-    setFavs(JSON.parse(localStorage.getItem("favoriteActivities")));
+    localStorage.setItem(
+      "favoriteActivities",
+      JSON.stringify(storedActivities)
+    );
   };
 
   return (
-    <div className="Favorites">
-      <div
-        className="favoritesListToggle"
-        onPointerDown={() => handleShowModule()}
-      >
-        ⭐️
-      </div>
-      {showFavorites && (
-        <ul className="favoritesList">
-          {favs.map((activity, index) => {
-            return (
-              <li className="favoritesListItem" key={index}>
-                <p>{activity}</p>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+    <div className="favoritesContainer">
+      <ul className="favoritesList">
+        {favs.map((activity, index) => {
+          return (
+            <li className="favoritesListItem" key={index}>
+              <p>{activity}</p>
+              <div
+                className="removeButton"
+                onPointerDown={() => handleRemove(index)}
+              >
+                𐄂
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

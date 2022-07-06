@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { getActivity } from "./../actions";
 
-const Activity = ({ title, activity, isFetching, error, getActivity }) => {
+const Activity = ({ activity, isFetching, error, getActivity, handleFavsList }) => {
   if (error) {
     return <h2>We have a problem..!{error}</h2>;
   }
@@ -29,7 +29,7 @@ const Activity = ({ title, activity, isFetching, error, getActivity }) => {
   };
 
   return (
-    <div className="Activity">
+      <>
       {!isFetching && (
         <div className="activityContainer">
           <div className="activityCard" onPointerDown={() => handleClick()}>
@@ -51,15 +51,15 @@ const Activity = ({ title, activity, isFetching, error, getActivity }) => {
           </div>
 
           <div
-            className="favoriteButton"
+            className="tab favoriteButton"
             onPointerDown={() => handleFavorite()}
           >
             ⭐️
           </div>
 
           <div
-            className="listButton"
-            onPointerDown={() => handleFavorite()}
+            className="tab listButton"
+            onPointerDown={() => handleFavsList()}
           >
             📖
           </div>
@@ -72,13 +72,12 @@ const Activity = ({ title, activity, isFetching, error, getActivity }) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    title: state.title,
     activity: state.activity,
     isFetching: state.isFetching,
     error: state.error,

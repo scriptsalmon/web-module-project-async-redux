@@ -3,10 +3,9 @@ import { FETCH_SUCCESS } from "./../actions";
 import { FETCH_FAIL } from "./../actions";
 
 export const initialState = {
-  title: "Bored?",
   activity: {
-    activity: "",
-    type: "",
+    activity: null,
+    type: null,
     participants: null,
     accessability: null,
     key: 1133377,
