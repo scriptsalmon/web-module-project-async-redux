@@ -22,23 +22,35 @@ const initialFavs = [
 ];
 
 const Favorites = () => {
-  const [favs, setFavs] = useState(initialFavs);
+  const [favs] = useState(initialFavs);
+  const [showFavorites, setShowFavorites] = useState(false);
+
+  const handleShowModule = () => {
+    setShowFavorites(!showFavorites);
+  };
 
   return (
     <div className="Favorites">
-      <div>⭐️</div>
-      <ul className="favoritesList">
-        {favs.map((activity) => {
-          return (
-            <li>
-              <p>Activity: {activity.activity}</p>
-              <p>Type: {activity.type}</p>
-              <p>Participants: {activity.participants}</p>
-              <p>Accessability: {activity.accessability}</p>
-            </li>
-          );
-        })}
-      </ul>
+      <div
+        className="favoritesListToggle"
+        onPointerDown={() => handleShowModule()}
+      >
+        ⭐️
+      </div>
+      {showFavorites && (
+        <ul className="favoritesList">
+          {favs.map((activity) => {
+            return (
+              <li className="favoritesListItem">
+                <p>Activity: {activity.activity}</p>
+                <p>Type: {activity.type}</p>
+                <p>Participants: {activity.participants}</p>
+                <p>Accessability: {activity.accessability}</p>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };

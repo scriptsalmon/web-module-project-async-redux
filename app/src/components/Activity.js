@@ -24,9 +24,6 @@ const Activity = ({ title, activity, isFetching, error, getActivity }) => {
         {activity.activity && <p>Activity: {activity.activity}</p>}
         {activity.type && <p>Type: {activity.type}</p>}
         {activity.participants && <p>Participants: {activity.participants}</p>}
-        {activity.accessability && (
-          <p>Accessability: {activity.accessability}</p>
-        )}
       </div>
     </div>
   );

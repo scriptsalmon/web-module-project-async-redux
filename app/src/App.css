@@ -11,8 +11,8 @@
 
 .activity-card {
   min-height: 160px;
-  width: 260px;
-  padding: 1%;
+  width: 200px;
+  padding: 1% 5%;
   border: solid 1px teal;
   border-radius: 12px;
   margin: 1%;
@@ -29,4 +29,26 @@
   justify-content: center;
   flex-direction: column;
   background-color: blanchedalmond;
+}
+
+.favoritesListToggle {
+  cursor: pointer;
+}
+
+.favoritesList {
+  list-style-type: none;
+  padding: 1%;
+}
+
+.favoritesListItem {
+  text-align: left;
+  padding: 5%;
+  border: 1px dotted grey;
+  border-radius: 12px;
+  margin: 1%;
+}
+
+.favoritesListItem:hover {
+  background-color: rgba(0, 255, 255, 0.341);
+  cursor: pointer;
 }
