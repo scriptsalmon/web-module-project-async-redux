@@ -16,14 +16,29 @@ const Activity = ({ title, activity, isFetching, error, getActivity }) => {
     getActivity();
   };
 
+  const handleFavorite = (e) => {
+    // ☆ ★
+    if (localStorage.getItem("favoriteActivities") == null) {
+      localStorage.setItem("favoriteActivities", "[]");
+    }
+
+    let storedActivities = JSON.parse(localStorage.getItem("favoriteActivities"));
+    storedActivities.push(activity.activity)
+
+    localStorage.setItem('favoriteActivities', JSON.stringify(storedActivities));
+  };
+
   return (
     <div className="Activity">
       <h2>{title}</h2>
 
-      <div className="activity-card" onClick={() => handleClick()}>
+      <div className="activityCard" onPointerDown={() => handleClick()}>
         {activity.activity && <p>Activity: {activity.activity}</p>}
         {activity.type && <p>Type: {activity.type}</p>}
         {activity.participants && <p>Participants: {activity.participants}</p>}
+      </div>
+      <div className="favoriteButton" onPointerDown={() => handleFavorite()}>
+        favorite
       </div>
     </div>
   );
