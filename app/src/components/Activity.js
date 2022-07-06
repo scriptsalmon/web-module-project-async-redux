@@ -8,38 +8,70 @@ const Activity = ({ title, activity, isFetching, error, getActivity }) => {
     return <h2>We have a problem..!{error}</h2>;
   }
 
-  if (isFetching) {
-    return <h2>Hmmmm...</h2>;
-  }
-
   const handleClick = () => {
     getActivity();
   };
 
   const handleFavorite = (e) => {
-    // ☆ ★
     if (localStorage.getItem("favoriteActivities") == null) {
       localStorage.setItem("favoriteActivities", "[]");
     }
 
-    let storedActivities = JSON.parse(localStorage.getItem("favoriteActivities"));
-    storedActivities.push(activity.activity)
+    let storedActivities = JSON.parse(
+      localStorage.getItem("favoriteActivities")
+    );
+    storedActivities.push(activity.activity);
 
-    localStorage.setItem('favoriteActivities', JSON.stringify(storedActivities));
+    localStorage.setItem(
+      "favoriteActivities",
+      JSON.stringify(storedActivities)
+    );
   };
 
   return (
     <div className="Activity">
-      <h2>{title}</h2>
+      {!isFetching && (
+        <div className="activityContainer">
+          <div className="activityCard" onPointerDown={() => handleClick()}>
+            {activity.activity && (
+              <div className="activityItem">
+                <h3>Activity</h3> <span>{activity.activity}</span>
+              </div>
+            )}
+            {activity.type && (
+              <div className="activityItem">
+                <h3>Type</h3> <span>{activity.type}</span>
+              </div>
+            )}
+            {activity.participants && (
+              <div className="activityItem">
+                <h3>Participants</h3> <span>{activity.participants}</span>
+              </div>
+            )}
+          </div>
 
-      <div className="activityCard" onPointerDown={() => handleClick()}>
-        {activity.activity && <p>Activity: {activity.activity}</p>}
-        {activity.type && <p>Type: {activity.type}</p>}
-        {activity.participants && <p>Participants: {activity.participants}</p>}
-      </div>
-      <div className="favoriteButton" onPointerDown={() => handleFavorite()}>
-        favorite
-      </div>
+          <div
+            className="favoriteButton"
+            onPointerDown={() => handleFavorite()}
+          >
+            ⭐️
+          </div>
+
+          <div
+            className="listButton"
+            onPointerDown={() => handleFavorite()}
+          >
+            📖
+          </div>
+        </div>
+      )}
+      {isFetching && (
+        <div className="activityContainer">
+          <div className="activityCard">
+            <span>...</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

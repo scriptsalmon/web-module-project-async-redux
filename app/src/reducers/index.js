@@ -28,7 +28,7 @@ export const reducer = (state = initialState, action) => {
     case FETCH_SUCCESS:
       return {
         ...state,
-        title: "Try this..?",
+        title: "Here!",
         activity: action.payload,
         isFetching: false,
         error: "",
