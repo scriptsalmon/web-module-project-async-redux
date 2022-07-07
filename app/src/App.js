@@ -11,7 +11,7 @@ function App() {
     setShowFavorites(!showFavorites);
     if (
       localStorage.getItem("favoriteActivities") == null ||
-      localStorage.favoriteActivities.length === '[]'
+      localStorage.favoriteActivities.length === "[]"
     ) {
       window.alert("favorites list is empty");
       return;

@@ -3,9 +3,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
-  text-align:center;
+  text-align: center;
 }
 
 .activityContainer {
@@ -70,7 +70,7 @@ h3 {
 }
 
 .favoritesContainer {
-  position:relative;
+  position: relative;
   width: 100vw;
 }
 
@@ -80,6 +80,7 @@ h3 {
   justify-content: center;
   position: absolute;
   width: 100%;
+  height: 156px;
   list-style-type: none;
   padding: 10px;
   box-sizing: border-box;
@@ -92,9 +93,22 @@ h3 {
   border-radius: 10px;
   padding: 0% 8px;
   margin: 8px;
+  position: relative;
 }
 
 .favoritesListItem:hover {
-  background-color: rgba(0, 255, 255, 0.341);
   cursor: pointer;
+}
+
+.actionButton {
+  background-color: rgb(247, 78, 78);
+  margin-right: 10px;
+}
+
+.actionButton:hover {
+  background-color: rgb(241, 140, 140);
+}
+
+.selected {
+  background-color: rgba(131, 242, 219, 0.571);
 }
