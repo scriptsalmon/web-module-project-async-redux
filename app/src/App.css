@@ -112,3 +112,7 @@ h3 {
 .selected {
   background-color: rgba(131, 242, 219, 0.571);
 }
+
+.emoji {
+  font-size: 1.5rem;
+}
