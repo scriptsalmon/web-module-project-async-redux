@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import "./App.css";
 import Activity from "./components/Activity";
 import Favorites from "./components/Favorites";
 
@@ -12,17 +11,12 @@ function App({ activity }) {
   const handleFavsModule = () => {
     setFavsModule(!favsModule);
     if (localStorage.getItem("favoriteActivities") == null) {
-      window.alert("favorites list is empty");
-      return;
+      localStorage.setItem("favoriteActivities", `["Hope you enjoy the app! ❤️"]`);
     }
     setFavs(JSON.parse(localStorage.getItem("favoriteActivities")));
   };
 
   const handleAddFavorite = (e) => {
-    if (localStorage.getItem("favoriteActivities") == null) {
-      localStorage.setItem("favoriteActivities", "[]");
-    }
-
     let storedActivities = JSON.parse(
       localStorage.getItem("favoriteActivities")
     );

@@ -1,4 +1,6 @@
 body {
+  background-color: #212121;
+  color: white;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,7 +11,140 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media screen and (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.activityContainer {
+  position: relative;
+  margin-bottom: 2%;
+}
+
+.activityCard {
+  text-align: left;
+  min-height: 186px;
+  width: 320px;
+  padding: 0% 16px;
+  padding-top: 24px;
+  border: solid 1px teal;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.activityItem {
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 0.6rem;
+  margin: 0;
+}
+
+.instructionsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top:20px;
+}
+
+.activityCard:hover {
+  background-color: rgba(0, 255, 255, 0.175);
+  cursor: pointer;
+}
+
+.tab {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20;
+  right: 0;
+  border: 1px solid black;
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.favoriteButton {
+  background-color: gold;
+  margin-right: 10px;
+}
+
+.favoriteButton:hover {
+  background-color: rgb(255, 239, 150);
+}
+
+.listButton {
+  background-color: rgb(157, 112, 22);
+  margin-right: 36px;
+}
+
+.listButton:hover {
+  background-color: rgb(199, 176, 135);
+}
+
+.favoritesContainer {
+  position: relative;
+  width: 100vw;
+}
+
+.favoritesList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 156px;
+  list-style-type: none;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+
+.favoritesListItem {
+  min-width: 186px;
+  border: 1px solid green;
+  border-radius: 10px;
+  padding: 0% 8px;
+  margin: 8px;
+  position: relative;
+}
+
+.favoritesListItem:hover {
+  cursor: pointer;
+}
+
+.actionButton {
+  background-color: rgb(247, 78, 78);
+  width: 60px;
+  margin-right: 10px;
+}
+
+.actionButton:hover {
+  background-color: rgb(241, 140, 140);
+}
+
+.selected {
+  background-color: rgba(131, 242, 219, 0.571);
+}
+
+.peeps {
+  font-size: 1.5rem;
 }
