@@ -20,6 +20,7 @@ function App({ activity }) {
     let storedActivities = JSON.parse(
       localStorage.getItem("favoriteActivities")
     );
+    if(storedActivities.includes(activity.activity)) return;
     storedActivities.push(activity.activity);
 
     localStorage.setItem(
