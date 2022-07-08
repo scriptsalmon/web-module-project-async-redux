@@ -33,6 +33,12 @@ h3 {
   margin: 0;
 }
 
+.instructionsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top:20px;
+}
+
 .activityCard:hover {
   background-color: aqua;
   cursor: pointer;
@@ -102,6 +108,7 @@ h3 {
 
 .actionButton {
   background-color: rgb(247, 78, 78);
+  width: 60px;
   margin-right: 10px;
 }
 
@@ -113,6 +120,6 @@ h3 {
   background-color: rgba(131, 242, 219, 0.571);
 }
 
-.emoji {
+.peeps {
   font-size: 1.5rem;
 }

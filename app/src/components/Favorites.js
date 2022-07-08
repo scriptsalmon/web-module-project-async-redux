@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Favorites = ({ favs }) => {
+const Favorites = ({ favs, handleRemoveFavorite }) => {
   const [selected, setSelected] = useState();
 
   const getClassName = (index) => {
@@ -11,24 +11,10 @@ const Favorites = ({ favs }) => {
     selected === index ? setSelected(null) : setSelected(index);
   };
 
-  const handleRemove = (index) => {
-    // grabbing data from storage and storing in execution context
-    let storedActivities = JSON.parse(
-      localStorage.getItem("favoriteActivities")
-    );
-    // parsed & stored array will be mutated now, removing item by index
-    storedActivities.splice(index, 1);
-    // re-set item to local storage
-    localStorage.setItem(
-      "favoriteActivities",
-      JSON.stringify(storedActivities)
-    );
-  };
-
   return (
     <div className="favoritesContainer">
       <ul className="favoritesList">
-        {favs.map((activity, index) => {
+        {favs.filter(item => item).map((activity, index) => {
           return (
             <li
               key={index}
@@ -40,9 +26,9 @@ const Favorites = ({ favs }) => {
               {selected === index && (
                 <div
                   className="tab actionButton"
-                  onPointerDown={() => handleRemove(index)}
+                  onPointerDown={() => handleRemoveFavorite(index)}
                 >
-                  𐄂
+                  x
                 </div>
               )}
             </li>

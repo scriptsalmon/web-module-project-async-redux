@@ -2,16 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { getActivity } from "./../actions";
-// import Emoji from "./Emoji";
+import Emoji from "./Emoji";
 
 const Activity = ({
   activity,
   isFetching,
   error,
   getActivity,
-  handleFavsList,
+  handleFavsModule,
+  handleAddFavorite
 }) => {
-  // const [participants, setParticipants] = useState([]);
   const participants = [];
 
   if (error) {
@@ -31,25 +31,8 @@ const Activity = ({
     for (let i = 0; i <= num; i++) {
       let random = Math.floor(Math.random() * peeps.length);
       participants.push(peeps[random]);
-      // setParticipants([...participants, peeps[random]]);
     }
     return participants;
-  };
-
-  const handleFavorite = (e) => {
-    if (localStorage.getItem("favoriteActivities") == null) {
-      localStorage.setItem("favoriteActivities", "[]");
-    }
-
-    let storedActivities = JSON.parse(
-      localStorage.getItem("favoriteActivities")
-    );
-    storedActivities.push(activity.activity);
-
-    localStorage.setItem(
-      "favoriteActivities",
-      JSON.stringify(storedActivities)
-    );
   };
 
   return (
@@ -57,6 +40,19 @@ const Activity = ({
       {!isFetching && (
         <div className="activityContainer">
           <div className="activityCard" onPointerDown={() => handleClick()}>
+            {!activity.activity && (
+              <div className="activityItem">
+                <h3>Activity</h3> <span>app</span>
+                <div className="instructionsContainer">
+                  <div>
+                    <Emoji symbol={"📖"} label={"star"} /> = favorites list
+                  </div>
+                  <div>
+                    <Emoji symbol={"⭐️"} label={"star"} /> = add favorite
+                  </div>
+                </div>
+              </div>
+            )}
             {activity.activity && (
               <div className="activityItem">
                 <h3>Activity</h3> <span>{activity.activity}</span>
@@ -70,27 +66,26 @@ const Activity = ({
             {activity.participants && (
               <div className="activityItem">
                 <h3>Participants</h3>
-                {/* {participants.map((peep) => {
-                  console.log(peep);
-                  return <Emoji symbol={peep} />;
-                })} */}
-                <span className="emoji">{createParticipants(activity.participants)}</span>
+
+                <span className="peeps">
+                  {createParticipants(activity.participants)}
+                </span>
               </div>
             )}
           </div>
 
           <div
             className="tab favoriteButton"
-            onPointerDown={() => handleFavorite()}
+            onPointerDown={() => handleAddFavorite()}
           >
-            ⭐️
+            <Emoji symbol={"⭐️"} label={"star"} />
           </div>
 
           <div
             className="tab listButton"
-            onPointerDown={() => handleFavsList()}
+            onPointerDown={() => handleFavsModule()}
           >
-            📖
+            <Emoji symbol={"📖"} label={"star"} />
           </div>
         </div>
       )}
