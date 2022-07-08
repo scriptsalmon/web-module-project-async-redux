@@ -73,20 +73,21 @@ const Activity = ({
               </div>
             )}
           </div>
-
           <div
             className="tab favoriteButton"
             onPointerDown={() => handleAddFavorite()}
           >
             <Emoji symbol={"⭐️"} label={"star"} />
           </div>
-
           <div
             className="tab listButton"
             onPointerDown={() => handleFavsModule()}
           >
             <Emoji symbol={"📖"} label={"star"} />
           </div>
+          <a href="https://www.github.com/waddal" alt="❤️" className="social">
+            ❤️
+          </a>
         </div>
       )}
       {isFetching && (
@@ -96,6 +97,9 @@ const Activity = ({
           </div>
           <div className="tab favoriteButton"></div>
           <div className="tab listButton"></div>
+          <a href="https://www.github.com/waddal" alt="❤️" className="social">
+            ❤️
+          </a>
         </div>
       )}
     </>
