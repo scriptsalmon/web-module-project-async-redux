@@ -11,7 +11,10 @@ function App({ activity }) {
   const handleFavsModule = () => {
     setFavsModule(!favsModule);
     if (localStorage.getItem("favoriteActivities") == null) {
-      localStorage.setItem("favoriteActivities", `["Hope you enjoy the app! ❤️"]`);
+      localStorage.setItem(
+        "favoriteActivities",
+        `["Hope you enjoy the app! ❤️"]`
+      );
     }
     setFavs(JSON.parse(localStorage.getItem("favoriteActivities")));
   };
@@ -20,7 +23,7 @@ function App({ activity }) {
     let storedActivities = JSON.parse(
       localStorage.getItem("favoriteActivities")
     );
-    if(storedActivities.includes(activity.activity)) return;
+    if (storedActivities.includes(activity.activity)) return;
     storedActivities.push(activity.activity);
 
     localStorage.setItem(

@@ -77,6 +77,7 @@ h3 {
 }
 
 .tab {
+  font-size: 0.9rem;
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -105,6 +106,19 @@ h3 {
 
 .listButton:hover {
   background-color: rgb(177, 155, 116);
+}
+
+.socialButton {
+  background-color: rgb(157, 31, 22);
+  margin-right: 62px;
+}
+
+.socialButton a {
+  text-decoration: none;
+}
+
+.socialButton:hover {
+  background-color: rgb(240, 119, 105);
 }
 
 .favoritesContainer {
@@ -157,8 +171,4 @@ h3 {
 
 .peeps {
   font-size: 1.5rem;
-}
-
-.social {
-  font-size: 0.5rem;
 }

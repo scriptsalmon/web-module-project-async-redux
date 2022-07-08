@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { getActivity } from "./../actions";
 import Emoji from "./Emoji";
+import Tabs from "./Tabs";
 
 const Activity = ({
   activity,
@@ -73,21 +74,10 @@ const Activity = ({
               </div>
             )}
           </div>
-          <div
-            className="tab favoriteButton"
-            onPointerDown={() => handleAddFavorite()}
-          >
-            <Emoji symbol={"⭐️"} label={"star"} />
-          </div>
-          <div
-            className="tab listButton"
-            onPointerDown={() => handleFavsModule()}
-          >
-            <Emoji symbol={"📖"} label={"star"} />
-          </div>
-          <a href="https://www.github.com/waddal" alt="❤️" className="social">
-            ❤️
-          </a>
+          <Tabs
+            handleAddFavorite={handleAddFavorite}
+            handleFavsModule={handleFavsModule}
+          />
         </div>
       )}
       {isFetching && (
@@ -97,9 +87,7 @@ const Activity = ({
           </div>
           <div className="tab favoriteButton"></div>
           <div className="tab listButton"></div>
-          <a href="https://www.github.com/waddal" alt="❤️" className="social">
-            ❤️
-          </a>
+          <div className="tab socialButton"></div>
         </div>
       )}
     </>
