@@ -10,7 +10,7 @@ const Activity = ({
   error,
   getActivity,
   handleFavsModule,
-  handleAddFavorite
+  handleAddFavorite,
 }) => {
   const participants = [];
 

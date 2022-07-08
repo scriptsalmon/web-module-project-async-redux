@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Favorites = ({ favs, handleRemoveFavorite }) => {
   const [selected, setSelected] = useState();
@@ -14,26 +14,28 @@ const Favorites = ({ favs, handleRemoveFavorite }) => {
   return (
     <div className="favoritesContainer">
       <ul className="favoritesList">
-        {favs.filter(item => item).map((activity, index) => {
-          return (
-            <li
-              key={index}
-              className={`favoritesListItem ${getClassName(index)}`}
-              onPointerEnter={() => markSelectedId(index)}
-              onPointerLeave={() => markSelectedId(index)}
-            >
-              <p>{activity}</p>
-              {selected === index && (
-                <div
-                  className="tab actionButton"
-                  onPointerDown={() => handleRemoveFavorite(index)}
-                >
-                  x
-                </div>
-              )}
-            </li>
-          );
-        })}
+        {favs
+          .filter((item) => item)
+          .map((activity, index) => {
+            return (
+              <li
+                key={index}
+                className={`favoritesListItem ${getClassName(index)}`}
+                onPointerEnter={() => markSelectedId(index)}
+                onPointerLeave={() => markSelectedId(index)}
+              >
+                <p>{activity}</p>
+                {selected === index && (
+                  <div
+                    className="tab actionButton"
+                    onPointerDown={() => handleRemoveFavorite(index)}
+                  >
+                    x
+                  </div>
+                )}
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

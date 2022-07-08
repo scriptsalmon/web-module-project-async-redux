@@ -10,33 +10,26 @@ export const initialState = {
     accessability: null,
     key: 1133377,
   },
-  favorite: false,
   isFetching: false,
   error: "",
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_START:
       return {
         ...state,
-        activity: {},
         isFetching: true,
-        error: "",
       };
     case FETCH_SUCCESS:
       return {
         ...state,
-        title: "Here!",
         activity: action.payload,
         isFetching: false,
-        error: "",
       };
     case FETCH_FAIL:
       return {
         ...state,
-        title: "",
-        activity: {},
         isFetching: false,
         error: action.payload,
       };
@@ -44,3 +37,5 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;

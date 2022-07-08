@@ -5,7 +5,7 @@ import "./App.css";
 import Activity from "./components/Activity";
 import Favorites from "./components/Favorites";
 
-function App({activity}) {
+function App({ activity }) {
   const [favs, setFavs] = useState([]);
   const [favsModule, setFavsModule] = useState(false);
 
@@ -36,13 +36,12 @@ function App({activity}) {
   };
 
   const handleRemoveFavorite = (index) => {
-    // grabbing data from storage and storing in execution context
     let storedActivities = JSON.parse(
       localStorage.getItem("favoriteActivities")
     );
-    // parsed & stored array will be mutated now, removing item by index
+
     storedActivities.splice(index, 1);
-    // re-set item to local storage
+
     localStorage.setItem(
       "favoriteActivities",
       JSON.stringify(storedActivities)
@@ -52,9 +51,12 @@ function App({activity}) {
 
   return (
     <div className="App">
-      <Activity handleFavsModule={handleFavsModule} handleAddFavorite={handleAddFavorite}/>
+      <Activity
+        handleFavsModule={handleFavsModule}
+        handleAddFavorite={handleAddFavorite}
+      />
       {favsModule && (
-        <Favorites favs={favs} handleRemoveFavorite={handleRemoveFavorite}  />
+        <Favorites favs={favs} handleRemoveFavorite={handleRemoveFavorite} />
       )}
     </div>
   );
