@@ -13,12 +13,12 @@ const Favorites = ({ favs, handleRemoveFavorite }) => {
 
   return (
     <div className="favoritesContainer">
-      <ul className="favoritesList">
+      <div className="favoritesList">
         {favs
           .filter((item) => item)
           .map((activity, index) => {
             return (
-              <li
+              <div
                 key={index}
                 className={`favoritesListItem ${getClassName(index)}`}
                 onPointerEnter={() => markSelectedId(index)}
@@ -29,14 +29,12 @@ const Favorites = ({ favs, handleRemoveFavorite }) => {
                   <div
                     className="tab actionButton"
                     onPointerDown={() => handleRemoveFavorite(index)}
-                  >
-                    x
-                  </div>
+                  ></div>
                 )}
-              </li>
+              </div>
             );
           })}
-      </ul>
+      </div>
     </div>
   );
 };

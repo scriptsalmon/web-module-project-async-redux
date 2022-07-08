@@ -1,11 +1,18 @@
+:root {
+  --bg-color-dark: rgb(33, 33, 33);
+  --text-color-dark: rgb(231, 231, 231);
+  --border-color-dark: rgb(0, 128, 128);
+  --accent-color-dark: rgba(0, 255, 255, 0.175);
+}
+
 body {
-  background-color: #212121;
-  color: white;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,7 +26,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -35,7 +42,7 @@ code {
 
 .activityContainer {
   position: relative;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
 }
 
 .activityCard {
@@ -44,7 +51,7 @@ code {
   width: 320px;
   padding: 0% 16px;
   padding-top: 24px;
-  border: solid 1px teal;
+  border: solid 1px var(--border-color-dark);
   border-radius: 12px;
   box-sizing: border-box;
 }
@@ -61,11 +68,11 @@ h3 {
 .instructionsContainer {
   display: flex;
   flex-direction: column;
-  margin-top:20px;
+  margin-top: 20px;
 }
 
 .activityCard:hover {
-  background-color: rgba(0, 255, 255, 0.175);
+  background-color: var(--accent-color-dark);
   cursor: pointer;
 }
 
@@ -83,7 +90,7 @@ h3 {
 }
 
 .favoriteButton {
-  background-color: gold;
+  background-color: rgb(227, 196, 18);
   margin-right: 10px;
 }
 
@@ -97,7 +104,7 @@ h3 {
 }
 
 .listButton:hover {
-  background-color: rgb(199, 176, 135);
+  background-color: rgb(177, 155, 116);
 }
 
 .favoritesContainer {
@@ -106,35 +113,38 @@ h3 {
 }
 
 .favoritesList {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
   width: 100%;
-  height: 156px;
-  list-style-type: none;
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   padding: 10px;
   box-sizing: border-box;
-  overflow: scroll;
 }
 
 .favoritesListItem {
-  min-width: 186px;
-  border: 1px solid green;
-  border-radius: 10px;
-  padding: 0% 8px;
-  margin: 8px;
   position: relative;
+  padding: 0% 8px;
+  border-radius: 10px;
+  margin: 8px;
+  border: 1px solid green;
 }
 
 .favoritesListItem:hover {
-  cursor: pointer;
+  cursor: default;
 }
 
 .actionButton {
   background-color: rgb(247, 78, 78);
+  height: 12px;
   width: 60px;
-  margin-right: 10px;
+  top: -14px;
+  left: 0;
+  border: 1px solid black;
+  border-bottom: none;
+  border-radius: 0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin-left: 10px;
 }
 
 .actionButton:hover {
