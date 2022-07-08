@@ -21,8 +21,8 @@ const Favorites = ({ favs, handleRemoveFavorite }) => {
               <div
                 key={index}
                 className={`favoritesListItem ${getClassName(index)}`}
-                onPointerEnter={() => markSelectedId(index)}
-                onPointerLeave={() => markSelectedId(index)}
+                onPointerDown={() => markSelectedId(index)}
+                // onPointerLeave={() => markSelectedId(index)} !mobile
               >
                 <p>{activity}</p>
                 {selected === index && (
